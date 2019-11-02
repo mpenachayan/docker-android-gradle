@@ -31,12 +31,13 @@ RUN mkdir -p ~/.android/ && touch ~/.android/repositories.cfg && \
 
 #Download and extract Gradle to WRAPPER folders 
 RUN wget -q https://services.gradle.org/distributions/gradle-${GRADLE_DIST}.zip -O /tmp/gradle.zip && \
-    mkdir -p ${GRADLE_WRAPPER_HOME} && unzip -qq /tmp/gradle.zip -d ${GRADLE_WRAPPER_HOME}
+    mkdir -p ${GRADLE_WRAPPER_HOME} && \ 
+    unzip -qq /tmp/gradle.zip -d ${GRADLE_WRAPPER_HOME}
 
 #Set execution permissions to gradle binaries
 RUN chmod +x ${GRADLE_WRAPPER_HOME}/gradle-${GRADLE_VERSION}/bin/gradle 
 
 #Remove temporal folder to reduce image size
-RUN rm -rf /tmp/
+RUN rm -rf /tmp/*
 
 WORKDIR /home/android
