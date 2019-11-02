@@ -1,4 +1,4 @@
-FROM adoptopenjdk/openjdk8-openj9:alpine-slim
+FROM adoptopenjdk/openjdk8:alpine-slim
 LABEL maintainer="Martín Pena https://gitlab.com/mpenachayan/"
 LABEL version="1.0"
 LABEL basedOn="alvrme/alpine-android-base"
