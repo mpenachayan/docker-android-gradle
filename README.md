@@ -2,6 +2,16 @@
 
 The aim of this image is to include all the libraries and dependencies needed to build Android apps in a small Docker Image. This image use Docker image **adoptopenjdk/openjdk8-openj9:alpine-slim** as base and it's inspired by this Github https://github.com/alvr/alpine-android
 
+## Pull Image from Docker Cloud
+
+```bash
+docker pull mpenachayan/android-sdk-gradle:latest
+```
+
+```bash
+docker run --rm -it mpenachayan/android-sdk-gradle:latest
+```
+
 ## Build Docker Image and Run
 
 Follow these steps to build and run Docker image
@@ -23,11 +33,11 @@ ENV GRADLE_VERSION "5.6.4"
 ```
 
 ```bash
-docker build -t android-gradle:1.0 .
+docker build -t android-gradle:tagname .
 ```
 
 ```bash
-docker run --rm -it android-gradle:1.0
+docker run --rm -it android-gradle:tagname'
 ```
 
 
