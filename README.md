@@ -1,6 +1,6 @@
 # Docker Image with Android SDK and Gradle
 
-The aim of this image is to include all the libraries and dependencies needed to build Android apps in a small Docker Image
+The aim of this image is to include all the libraries and dependencies needed to build Android apps in a small Docker Image. This image use Docker image **adoptopenjdk/openjdk8-openj9:alpine-slim** as base and it's inspired by this Github https://github.com/alvr/alpine-android
 
 ## Build Docker Image and Run
 
