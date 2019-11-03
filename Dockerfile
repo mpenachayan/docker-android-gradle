@@ -5,12 +5,12 @@ LABEL basedOn="alvrme/alpine-android-base"
 
 ENV SDK_TOOLS "4333796"
 ENV ANDROID_HOME "/opt/sdk"
-ENV PATH=$PATH:$ANDROID_HOME/tools:$ANDROID_HOME/tools/bin:$ANDROID_HOME/platform-tools
+ENV GRADLE_HOME "/opt/gradle"
 ENV BUILD_TOOLS "29.0.2"
 ENV TARGET_SDK "29"
 ENV GRADLE_VERSION "5.6.4"
-ENV GRADLE_DIST "${GRADLE_VERSION}-bin"
-ENV GRADLE_WRAPPER_HOME "/root/.gradle/wrapper/dists/gradle-${GRADLE_DIST}/bxirm19lnfz6nurbatndyydux/"
+ENV GRADLE_DIST_TYPE "bin"
+ENV PATH=$PATH:$ANDROID_HOME/tools:$ANDROID_HOME/tools/bin:$ANDROID_HOME/platform-tools:$GRADLE_HOME/gradle-$GRADLE_VERSION/bin
 
 # Install required dependencies
 RUN apk add --no-cache bash git unzip wget && \
@@ -29,15 +29,20 @@ RUN mkdir -p ~/.android/ && touch ~/.android/repositories.cfg && \
     ${ANDROID_HOME}/tools/bin/sdkmanager "platform-tools" "build-tools;${BUILD_TOOLS}" "platforms;android-${TARGET_SDK}" && \    
     ${ANDROID_HOME}/tools/bin/sdkmanager "--update"
 
-#Download and extract Gradle to WRAPPER folders 
-RUN wget -q https://services.gradle.org/distributions/gradle-${GRADLE_DIST}.zip -O /tmp/gradle.zip && \
-    mkdir -p ${GRADLE_WRAPPER_HOME} && \ 
-    unzip -qq /tmp/gradle.zip -d ${GRADLE_WRAPPER_HOME}
+#Download Gradle and extract Gradle to GRADLE_HOME 
+RUN wget -q https://services.gradle.org/distributions/gradle-${GRADLE_VERSION}-bin.zip -O /tmp/gradle.zip && \
+    mkdir -p ${GRADLE_HOME} && \ 
+    unzip -qq /tmp/gradle.zip -d ${GRADLE_HOME} && \
+    chmod +x ${GRADLE_HOME}/gradle-${GRADLE_VERSION}/bin/gradle
 
-#Set execution permissions to gradle binaries
-RUN chmod +x ${GRADLE_WRAPPER_HOME}/gradle-${GRADLE_VERSION}/bin/gradle 
+#Create Wrapper Files to proper Gradle Distribution and force download of Wrapper Distribution
+RUN mkdir -p ~/gradle/ && \
+    cd ~/gradle/ && \
+    gradle wrapper --gradle-version=${GRADLE_VERSION} --distribution-type=${GRADLE_DIST_TYPE} && \
+    chmod +x ./gradlew && \
+    ./gradlew
 
 #Remove temporal folder to reduce image size
 RUN rm -rf /tmp/*
 
-WORKDIR /home/android
+WORKDIR /home/gradle
