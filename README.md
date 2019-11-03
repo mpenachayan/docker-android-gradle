@@ -9,7 +9,7 @@ docker pull mpenachayan/android-sdk-gradle:latest
 ```
 
 ```bash
-docker run  -it mpenachayan/android-sdk-gradle:latest
+docker run -it mpenachayan/android-sdk-gradle:latest
 ```
 
 ## Build Docker Image and Run
@@ -30,6 +30,7 @@ Edit Dockerfile as needed to change Android Target SDK, Android Build Tools vers
 ENV BUILD_TOOLS "29.0.2"
 ENV TARGET_SDK "29"
 ENV GRADLE_VERSION "5.6.4"
+ENV GRADLE_DIST_TYPE "bin"
 ```
 
 ```bash
