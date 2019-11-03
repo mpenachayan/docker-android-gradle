@@ -9,7 +9,8 @@ ENV GRADLE_HOME "/opt/gradle"
 ENV BUILD_TOOLS "29.0.2"
 ENV TARGET_SDK "29"
 ENV GRADLE_VERSION "5.6.4"
-ENV GRADLE_DIST_TYPE "bin"
+#Posible values of GRADLE_DIST_TYPE: bin|all
+ENV GRADLE_DIST_TYPE "bin" 
 ENV PATH=$PATH:$ANDROID_HOME/tools:$ANDROID_HOME/tools/bin:$ANDROID_HOME/platform-tools:$GRADLE_HOME/gradle-$GRADLE_VERSION/bin
 
 # Install required dependencies

@@ -4,11 +4,11 @@ The aim of this image is to include all the libraries and dependencies needed to
 
 ## Pull Image from Docker Cloud
 
-```bash
+```
 docker pull mpenachayan/android-sdk-gradle:latest
 ```
 
-```bash
+```
 docker run -it mpenachayan/android-sdk-gradle:latest
 ```
 
@@ -16,27 +16,27 @@ docker run -it mpenachayan/android-sdk-gradle:latest
 
 Follow these steps to build and run Docker image
 
-```bash
+```
 git clone https://gitlab.com/mpenachayan/docker-android-gradle.git
 ```
 
-```bash
+```
 cd docker-android-gradle
 ```
 
 Edit Dockerfile as needed to change Android Target SDK, Android Build Tools version and/or Gradle version
 
-```docker
+```
 ENV BUILD_TOOLS "29.0.2"
 ENV TARGET_SDK "29"
 ENV GRADLE_VERSION "5.6.4"
 ENV GRADLE_DIST_TYPE "bin"
 ```
 
-```bash
+```
 docker build -t android-gradle:tagname .
 ```
 
-```bash
+```
 docker run -it android-gradle:tagname
 ```
