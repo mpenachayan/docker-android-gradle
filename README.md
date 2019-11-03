@@ -9,7 +9,7 @@ docker pull mpenachayan/android-sdk-gradle:latest
 ```
 
 ```bash
-docker run --rm -it mpenachayan/android-sdk-gradle:latest
+docker run  -it mpenachayan/android-sdk-gradle:latest
 ```
 
 ## Build Docker Image and Run
@@ -37,7 +37,7 @@ docker build -t android-gradle:tagname .
 ```
 
 ```bash
-docker run --rm -it android-gradle:tagname'
+docker run -it android-gradle:tagname
 ```
 
 
