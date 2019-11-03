@@ -14,7 +14,7 @@ ENV GRADLE_DIST_TYPE "bin"
 ENV PATH=$PATH:$ANDROID_HOME/tools:$ANDROID_HOME/tools/bin:$ANDROID_HOME/platform-tools:$GRADLE_HOME/gradle-$GRADLE_VERSION/bin
 
 # Install required dependencies
-RUN apk --no-cache add bash git unzip wget && \
+RUN apk --no-cache add bash && \
     apk --no-cache add git && \
     apk --no-cache add unzip && \
     apk --no-cache add wget && \
