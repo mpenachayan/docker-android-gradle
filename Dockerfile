@@ -44,4 +44,4 @@ RUN gradle wrapper --gradle-version=${GRADLE_VERSION} --distribution-type=${GRAD
     ./gradlew
 
 #Remove temporal folder to reduce image size
-RUN rm -rf /tmp/*
+RUN rm -rf /tmp/* && rm -rf %{GRADLE_HOME}
