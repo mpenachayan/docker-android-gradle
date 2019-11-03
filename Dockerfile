@@ -14,8 +14,11 @@ ENV GRADLE_DIST_TYPE "bin"
 ENV PATH=$PATH:$ANDROID_HOME/tools:$ANDROID_HOME/tools/bin:$ANDROID_HOME/platform-tools:$GRADLE_HOME/gradle-$GRADLE_VERSION/bin
 
 # Install required dependencies
-RUN apk add --no-cache bash git unzip wget && \
-    apk add --no-cache --virtual .rundeps "$runDeps"
+RUN apk add --no-cache bash && \
+    apk add --no-cache git && \ 
+    apk add --no-cache unzip && \
+    apk add --no-cache wget && \
+    apk add --virtual .rundeps "$runDeps"
 
 # Download and extract Android Tools
 RUN wget -q https://dl.google.com/android/repository/sdk-tools-linux-${SDK_TOOLS}.zip -O /tmp/tools.zip && \
