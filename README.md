@@ -1,9 +1,8 @@
 # Docker Image with Android SDK and Gradle
 
-![Docker Cloud Build Status](https://img.shields.io/docker/cloud/build/mpenachayan/android-sdk-gradle)
-![Docker Pulls](https://img.shields.io/docker/pulls/mpenachayan/android-sdk-gradle)
-![Codacy grade](https://img.shields.io/codacy/grade/7bc655995a5548608df8c04a6fd4f090)
-![CodeFactor Grade](https://img.shields.io/codefactor/grade/github/mpenachayan/docker-android-gradle)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/7bc655995a5548608df8c04a6fd4f090)](https://www.codacy.com/manual/mpenachayan/docker-android-gradle?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=mpenachayan/docker-android-gradle&amp;utm_campaign=Badge_Grade)
+[![CodeFactor](https://www.codefactor.io/repository/github/mpenachayan/docker-android-gradle/badge)](https://www.codefactor.io/repository/github/mpenachayan/docker-android-gradle)
+
 
 The aim of this image is to include all the libraries and dependencies needed to build Android apps in a small Docker Image. This image use Docker image **adoptopenjdk/openjdk8-openj9:alpine-slim** as base and it's inspired by this [Github](https://github.com/alvr/alpine-android)
 
