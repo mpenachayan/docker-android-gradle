@@ -36,14 +36,12 @@ RUN wget -q https://services.gradle.org/distributions/gradle-${GRADLE_VERSION}-b
     unzip -qq /tmp/gradle.zip -d ${GRADLE_HOME} && \
     chmod +x ${GRADLE_HOME}/gradle-${GRADLE_VERSION}/bin/gradle
 
+WORKDIR /home/gradle
+
 #Create Wrapper Files to proper Gradle Distribution and force download of Wrapper Distribution
-RUN mkdir -p ~/gradle/ && \
-    cd ~/gradle/ && \
-    gradle wrapper --gradle-version=${GRADLE_VERSION} --distribution-type=${GRADLE_DIST_TYPE} && \
+RUN gradle wrapper --gradle-version=${GRADLE_VERSION} --distribution-type=${GRADLE_DIST_TYPE} && \
     chmod +x ./gradlew && \
     ./gradlew
 
 #Remove temporal folder to reduce image size
 RUN rm -rf /tmp/*
-
-WORKDIR /home/gradle
