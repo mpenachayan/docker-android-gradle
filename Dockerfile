@@ -15,7 +15,10 @@ ENV PATH=$PATH:$ANDROID_HOME/tools:$ANDROID_HOME/tools/bin:$ANDROID_HOME/platfor
 
 # Install required dependencies
 RUN apk --no-cache add bash git unzip wget && \
-    apk --virtual add .rundeps "$runDeps"
+    apk --no-cache add git && \
+    apk --no-cache add unzip && \
+    apk --no-cache add wget && \
+    apk --virtual add .rundeps $runDeps
 
 # Download and extract Android Tools
 RUN wget -q https://dl.google.com/android/repository/sdk-tools-linux-${SDK_TOOLS}.zip -O /tmp/tools.zip && \
