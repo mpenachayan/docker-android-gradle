@@ -6,7 +6,7 @@ LABEL basedOn="alvrme/alpine-android-base"
 ENV SDK_TOOLS "6514223_latest"
 ENV ANDROID_HOME "/opt/sdk"
 ENV GRADLE_HOME "/opt/gradle"
-ENV BUILD_TOOLS "30.0.0 rc4"
+ENV BUILD_TOOLS "30.0.0-rc4"
 ENV TARGET_SDK "R"
 ENV GRADLE_VERSION "6.5"
 #Posible values of GRADLE_DIST_TYPE: bin|all
@@ -22,13 +22,13 @@ RUN apk --no-cache add bash \
 # Download and extract Android Tools
 RUN wget -q https://dl.google.com/android/repository/commandlinetools-linux-${SDK_TOOLS}.zip -O /tmp/tools.zip && \
     mkdir -p ${ANDROID_HOME} && \
-    unzip -qq /tmp/tools.zip -d ${ANDROID_HOME} 
+    unzip -qq /tmp/tools.zip -d ${ANDROID_HOME}
 
 # Install SDK Packages
 RUN mkdir -p ~/.android/ && touch ~/.android/repositories.cfg && \
-    yes | ${ANDROID_HOME}/tools/bin/sdkmanager "--licenses" && \
-    ${ANDROID_HOME}/tools/bin/sdkmanager "platform-tools" "build-tools;${BUILD_TOOLS}" "platforms;android-${TARGET_SDK}" && \    
-    ${ANDROID_HOME}/tools/bin/sdkmanager "--update"
+    yes | ${ANDROID_HOME}/tools/bin/sdkmanager --sdk_root=${ANDROID_HOME} "--licenses" && \
+    ${ANDROID_HOME}/tools/bin/sdkmanager --sdk_root=${ANDROID_HOME} "platform-tools" "build-tools;${BUILD_TOOLS}" "platforms;android-${TARGET_SDK}" && \    
+    ${ANDROID_HOME}/tools/bin/sdkmanager --sdk_root=${ANDROID_HOME} "--update"
 
 #Download Gradle and extract Gradle to GRADLE_HOME 
 RUN wget -q https://services.gradle.org/distributions/gradle-${GRADLE_VERSION}-bin.zip -O /tmp/gradle.zip && \
