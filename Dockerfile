@@ -3,12 +3,12 @@ LABEL maintainer="Martín Pena https://gitlab.com/mpenachayan/"
 LABEL version="1.0"
 LABEL basedOn="alvrme/alpine-android-base"
 
-ENV SDK_TOOLS "4333796"
+ENV SDK_TOOLS "6514223_latest"
 ENV ANDROID_HOME "/opt/sdk"
 ENV GRADLE_HOME "/opt/gradle"
-ENV BUILD_TOOLS "29.0.3"
-ENV TARGET_SDK "29"
-ENV GRADLE_VERSION "6.4.1"
+ENV BUILD_TOOLS "30.0.0 rc4"
+ENV TARGET_SDK "R"
+ENV GRADLE_VERSION "6.5"
 #Posible values of GRADLE_DIST_TYPE: bin|all
 ENV GRADLE_DIST_TYPE "bin" 
 ENV PATH=$PATH:$ANDROID_HOME/tools:$ANDROID_HOME/tools/bin:$ANDROID_HOME/platform-tools:$GRADLE_HOME/gradle-$GRADLE_VERSION/bin
@@ -20,7 +20,7 @@ RUN apk --no-cache add bash \
         wget 
         
 # Download and extract Android Tools
-RUN wget -q https://dl.google.com/android/repository/sdk-tools-linux-${SDK_TOOLS}.zip -O /tmp/tools.zip && \
+RUN wget -q https://dl.google.com/android/repository/commandlinetools-linux-${SDK_TOOLS}.zip -O /tmp/tools.zip && \
     mkdir -p ${ANDROID_HOME} && \
     unzip -qq /tmp/tools.zip -d ${ANDROID_HOME} 
 

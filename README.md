@@ -30,9 +30,10 @@ cd docker-android-gradle
 Edit Dockerfile as needed to change Android Target SDK, Android Build Tools version and/or Gradle version
 
 ```docker
-ENV BUILD_TOOLS "29.0.3"
-ENV TARGET_SDK "29"
-ENV GRADLE_VERSION "6.4.1"
+ENV SDK_TOOLS "6514223_latest"
+ENV BUILD_TOOLS "30.0.0 rc4"
+ENV TARGET_SDK "R"
+ENV GRADLE_VERSION "6.5"
 # Possible values of GRADLE_DIST_TYPE: bin|all
 ENV GRADLE_DIST_TYPE "bin"
 ```
