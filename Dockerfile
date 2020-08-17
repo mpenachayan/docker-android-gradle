@@ -6,9 +6,9 @@ LABEL basedOn="alvrme/alpine-android-base"
 ENV SDK_TOOLS "6514223_latest"
 ENV ANDROID_HOME "/opt/sdk"
 ENV GRADLE_HOME "/opt/gradle"
-ENV BUILD_TOOLS "30.0.0-rc4"
-ENV TARGET_SDK "R"
-ENV GRADLE_VERSION "6.5"
+ENV BUILD_TOOLS "30.0.2"
+ENV TARGET_SDK "30"
+ENV GRADLE_VERSION "6.6"
 #Posible values of GRADLE_DIST_TYPE: bin|all
 ENV GRADLE_DIST_TYPE "bin" 
 ENV PATH=$PATH:$ANDROID_HOME/tools:$ANDROID_HOME/tools/bin:$ANDROID_HOME/platform-tools:$GRADLE_HOME/gradle-$GRADLE_VERSION/bin
