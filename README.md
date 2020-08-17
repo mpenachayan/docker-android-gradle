@@ -31,9 +31,9 @@ Edit Dockerfile as needed to change Android Target SDK, Android Build Tools vers
 
 ```docker
 ENV SDK_TOOLS "6514223_latest"
-ENV BUILD_TOOLS "30.0.0 rc4"
-ENV TARGET_SDK "R"
-ENV GRADLE_VERSION "6.5"
+ENV BUILD_TOOLS "30.0.2"
+ENV TARGET_SDK "30"
+ENV GRADLE_VERSION "6.6"
 # Possible values of GRADLE_DIST_TYPE: bin|all
 ENV GRADLE_DIST_TYPE "bin"
 ```
